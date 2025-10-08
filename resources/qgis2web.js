@@ -293,6 +293,7 @@ return;
 
 map.on('pointermove', onPointerMove);
 
+var isMobile = window.innerWidth <= 768;
 var popupContent = '';
 var popupCoord = null;
 var featuresPopupActive = false;
