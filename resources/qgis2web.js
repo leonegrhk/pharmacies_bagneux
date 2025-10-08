@@ -281,6 +281,7 @@ function onPointerMove(evt) {
             container.style.display = 'block';
             overlayPopup.setPosition(coord);
         } else {
+//empêche la fermeture du popup quand la souris est dessus
 if (container.matches(':hover')) {
 return;
 }
