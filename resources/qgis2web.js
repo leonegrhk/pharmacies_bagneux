@@ -290,8 +290,12 @@ return;
         }
     }
 };
-
+// Desktop : activer survol
+if (!isMobile) {
 map.on('pointermove', onPointerMove);
+}
+// Desktop + Mobile : clic / tap
+map.on('singleclick', onSingleClickFeatures);
 
 var isMobile = window.innerWidth <= 768;
 var popupContent = '';
