@@ -290,12 +290,23 @@ return;
         }
     }
 };
-// Desktop : activer survol
-if (!isMobile) {
+
+// Gestion des interactions desktop/mobile
+// Détection appareil mobile
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+// Sur desktop : survol
+// Sur mobile : clic
+if (isMobile) {
+// Désactive le survol pour éviter les bugs tactiles
+doHover = false;
+// Active le popup au clic
+map.on('singleclick', onPointerMove);
+} else {
+// Version desktop standard
 map.on('pointermove', onPointerMove);
-}
-// Desktop + Mobile : clic / tap
 map.on('singleclick', onSingleClickFeatures);
+}
 
 var isMobile = window.innerWidth <= 768;
 var popupContent = '';
